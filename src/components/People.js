@@ -24,14 +24,17 @@ class People extends React.Component {
    };
 
     render(){
+
+      let dropDownOptions = this.state.people.map((peoples) =>{
+        return <option>{}</option>;
+      })
+
   return (
     <div className="people">
       <main>
         <h1>Search for a Person</h1>
-        <select onChange={this.handleDropDownChange}>
-          <option>Find your Person</option>
-          {dropDownOptions}
-        </select>
+        
+        
       </main>
     </div>
   );

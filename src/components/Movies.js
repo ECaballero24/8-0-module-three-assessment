@@ -7,7 +7,8 @@ class Movies extends React.Component {
     super()
 
     this.state ={
-      films:[]
+      films:[],
+      currentFilms: null,
     };
   }
 
@@ -26,15 +27,17 @@ class Movies extends React.Component {
   }
 
 
-  // handleDropDown = (event) =>{
-  //   let currentMovieObj
-  // }
+  handleDropDown = (event) =>{
+    let currentMovieObj = this.state.films.find((film) =>{
+      return film.title === event.target.value
+    })
+  }
 
     render(){
 
-      // let dropDownOptions = this.state.films.map((film) =>{
-      //   return <option>{films.title}</option>
-      // });
+      let dropDownOptions = this.state.films.map((film) =>{
+        return <option>{film.title}</option>;
+      })
 
 
 
@@ -42,8 +45,11 @@ class Movies extends React.Component {
     <div className="movies">
       
         <h1>Select a Movie</h1>
-        {/* <select onChange={this.handleDropDown}></select>
-        {dropDownOptions} */}
+        <select onChange={this.handleDropDownChange}>
+          <option>Select a Movie</option>
+          {dropDownOptions}
+
+          </select>
       
     </div>
   );
