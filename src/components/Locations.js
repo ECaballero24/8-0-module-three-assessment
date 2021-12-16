@@ -26,34 +26,24 @@ class Locations extends React.Component {
      this.fetchLocations();
    }
 
-  // handleDropDown = (event) =>{
-  //   let currentLocationsObj = this.state.locations.find((location) => {
-  //     return location.name === event.target.value;
-  //   )};
 
-  //   this.setState({
-  //     currentLocation: currentLocationObj,
-  //   });
+    // this.setState({
+    //   currentLocation: currentLocationObj,
+    // });
   // };
 
 
     render(){
 
-      let dropDownOptions = this.state.locations.map((location) =>{
-        return <option>{location.name}</option>
-        
-      });
-
 
 
   return (
     <div className="locations">
+      <ul className= "list-of-locations">
+        {this.state.locations.name}
+
+      </ul>
       
-       <h1>List of Locations</h1>
-      <select onChange={this.handleDropDown}>
-      <option> Select Location </option>
-        {dropDownOptions}
-      </select>
       
     </div>
   );

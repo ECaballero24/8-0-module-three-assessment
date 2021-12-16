@@ -7,10 +7,17 @@ class Navbar extends React.Component {
     render(){
   return (
     <nav className="Navbar">
-      <Link to="/">HOME</Link>
-      <Link to="/movies">MOVIES</Link>
-      <Link to="/people">PEOPLE</Link>
-      <Link to="/locations">LOCATIONS</Link>
+      <Link to="/">
+        <img className= "logo"
+         src="https://www.clipartmax.com/png/middle/1-10021_clipart-movies-hd-movies-logo-transparent.png"
+         alt="movie logo"
+         />
+      </Link>
+
+
+      <Link to="/movies">Movies</Link>
+      <Link to="/people">People</Link>
+      <Link to="/locations">Locations</Link>
     </nav>
   );
  }
