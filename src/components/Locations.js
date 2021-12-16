@@ -8,7 +8,8 @@ class Locations extends React.Component {
 
     this.state = {
       locations:[]
-    }
+      // currentLocation: null,
+    };
   }
     fetchLocations = () =>{
         fetch("https://ghibliapi.herokuapp.com/locations")
@@ -16,41 +17,44 @@ class Locations extends React.Component {
         .then((data) => {
           this.setState({
             locations: data,
-            currentLocation: null,
-          })
-       })
+            
+          });
+       });
    };
 
    componentDidMount = () =>{
-     this.fetchLocations()
+     this.fetchLocations();
    }
 
-  handleDropDown = (event) =>{
-    let currentLocationsObj = this.state.locations.find((location) => {
-      return location.name === event.target.value;
-    )};
+  // handleDropDown = (event) =>{
+  //   let currentLocationsObj = this.state.locations.find((location) => {
+  //     return location.name === event.target.value;
+  //   )};
 
-    this.setState({
-      currentLocation: currentLocationObj,
-    });
-  };
+  //   this.setState({
+  //     currentLocation: currentLocationObj,
+  //   });
+  // };
 
 
     render(){
 
       let dropDownOptions = this.state.locations.map((location) =>{
-        return(
-          <option>{location.name}</option>
-        )
-      })
+        return <option>{location.name}</option>
+        
+      });
 
 
 
   return (
-    <div className="Locations">
-      <main>
-        <h1>List of Locations</h1>
-      </main>
+    <div className="locations">
+      
+       <h1>List of Locations</h1>
+      <select onChange={this.handleDropDown}>
+      <option> Select Location </option>
+        {dropDownOptions}
+      </select>
+      
     </div>
   );
  }
